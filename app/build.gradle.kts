@@ -13,7 +13,7 @@ android {
         targetSdk = 33
         versionCode = 3
         versionName = "1.3"
-
+        //desenvolvido em 20/06/2024
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
