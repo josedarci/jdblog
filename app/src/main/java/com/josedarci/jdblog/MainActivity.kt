@@ -1,9 +1,9 @@
 package com.josedarci.jdblog
 
 import android.Manifest
+
 import android.content.Intent
 import android.net.Uri
-
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.webkit.ValueCallback
@@ -13,6 +13,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -120,8 +121,8 @@ class MainActivity : ComponentActivity() {
                             request: WebResourceRequest,
                             error: WebResourceError
                         ) {
-                            // Exibir uma mensagem de erro ou tentar recarregar a página
-                            // Exemplo: Toast.makeText(context, "Erro ao carregar a página", Toast.LENGTH_SHORT).show()
+                            // Exibir uma mensagem de erro
+                            Toast.makeText(context, "Erro ao carregar a página", Toast.LENGTH_SHORT).show()
                         }
                     }
                     webChromeClient = object : WebChromeClient() {
@@ -173,7 +174,7 @@ class MainActivity : ComponentActivity() {
                     settings.domStorageEnabled = true
                     settings.javaScriptCanOpenWindowsAutomatically = true
                     settings.safeBrowsingEnabled = true
-                    settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
+                    settings.cacheMode = WebSettings.LOAD_NO_CACHE // Desativando o cache
                     loadUrl(url)
                 }
             }, modifier = Modifier.weight(1f))
